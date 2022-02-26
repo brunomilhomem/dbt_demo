@@ -1,0 +1,16 @@
+# For more information on how to configure this file, please see:
+# https://docs.getdbt.com/docs/profile
+dbt_demo:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: ib33187.ca-central-1.aws
+      user: bmilhomem
+      password: TrialPassword123
+      role: ACCOUNTADMIN
+      database: DEV
+      warehouse: TRANSFORMING
+      schema: STG
+      threads: 4
+      client_session_keep_alive: False
