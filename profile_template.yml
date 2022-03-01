@@ -5,9 +5,9 @@ dbt_demo:
   outputs:
     dev:
       type: snowflake
-      account: ib33187.ca-central-1.aws
+      account: your-snowflake-account-id-here
       user: bmilhomem
-      password: TrialPassword123
+      password: your-password-here
       role: ACCOUNTADMIN
       database: DEV
       warehouse: TRANSFORMING

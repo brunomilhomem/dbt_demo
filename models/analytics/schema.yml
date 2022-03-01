@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+  - name: dim_supermarket_sales
+    description: "A starter dbt model"
+    columns:
+      - name: sales_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_supermarket_sales
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
