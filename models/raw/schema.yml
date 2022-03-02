@@ -2,8 +2,8 @@ version: 2
 
 #Sources
 sources:
-  - name: raw_supermarket_sales
+  - name: supermarket_sales
     database: dev
     schema: raw
     tables:
-      - name: stg_supermarket_sales
+      - name: raw_supermarket_sales

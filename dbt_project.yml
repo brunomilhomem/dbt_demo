@@ -34,21 +34,24 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_demo:
       # Applies to all files under models/example/
-    raw: #tables with raw data
+    raw: # tables with raw data
       schema: raw
       transient: false
       materialized: table
-      tags: "raw"
-    stg: #tables with data already prepared
+      tags: raw
+    stg: # tables with data already prepared
       schema: stg
       materialized: view
-      tags: "stg"
+      tags: stg
     analytics: # dimensions and facts tables
       schema: analytics
+      materialized: incremental
       transient: false
+      tags: analytics
 
 seeds:
-  schema: raw
-
+  supermarket_sales:
+    schema: raw
+  
 snapshots:
   transient: false

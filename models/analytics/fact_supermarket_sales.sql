@@ -14,7 +14,7 @@ select
     ,gross_income
     ,rating
 
-from {{ ref ('dim_supermarket_sales')}}
+from {{ ref ('stg_supermarket_sales')}}
 
 )
 

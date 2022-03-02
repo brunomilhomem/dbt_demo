@@ -14,7 +14,7 @@ models:
   - name: fact_supermarket_sales
     description: "A starter dbt model"
     columns:
-      - name: id
+      - name: sales_id
         description: "The primary key for this table"
         tests:
           - unique

@@ -1,8 +1,8 @@
 {% begin snapshot_table %}
 {{
     config(
-      unique_key='global_id',
-      target_schema = 'edw',
+      unique_key='sales_id',
+      target_schema = 'analytics',
       strategy='check',
       check_cols=[
         'customer_standard_leadtime',
