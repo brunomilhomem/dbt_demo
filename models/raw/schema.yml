@@ -1,9 +1,22 @@
 version: 2
 
-#Sources
+# Sources
 sources:
-  - name: supermarket_sales
-    database: dev
-    schema: raw
+  - name: raw_data
+  - database: dev
+  - schema: raw
     tables:
-      - name: raw_supermarket_sales
+      - name: customers
+      - name: orders
+      - name: payments
+
+# Models
+models:
+- name: raw_customers
+  description: Raw data customers.
+
+- name: raw_orders
+  description: Raw data orders.
+
+- name: raw_payments
+  description: Raw data payments.

@@ -81,10 +81,12 @@ dbt deps
 dbt seed
 dbt run
 ```
+- You can also install dbt using [these instructions](https://docs.getdbt.com/dbt-cli/install/overview)
+  
 
 Profile template:
 
-```text
+```yaml
 # For more information on how to configure this file, please see:
 # https://docs.getdbt.com/docs/profile
 dbt_demo:

@@ -2,10 +2,28 @@
 version: 2
 
 models:
-  - name: stg_supermarket_sales
-    description: "A starter dbt model"
+  - name: stg_customers
+    description: "This table has basic information about a customer"
     columns:
-      - name: sales_id
+      - name: costumer_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: "This table has basic information about a customer"
+    columns:
+      - name: order_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_payments
+    description: "This table has basic information about a customer"
+    columns:
+      - name: payment_id
         description: "The primary key for this table"
         tests:
           - unique

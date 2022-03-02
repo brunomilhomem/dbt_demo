@@ -2,20 +2,61 @@
 version: 2
 
 models:
-  - name: dim_supermarket_sales
-    description: "A starter dbt model"
+  - name: dim_customers
+    description: "This table has basic information about a customer"
     columns:
-      - name: sales_id
+      - name: customer_id
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
 
-  - name: fact_supermarket_sales
-    description: "A starter dbt model"
+      - name: first_name
+        description: "Customer's first name"
+
+      - name: last_name
+        description: "Customer's last name"
+
+      - name: email
+        description: "Customer's email address"
+
+      - name: first_order
+        description: "Date (UTC) of a customer's first order"
+
+      - name: most_recent_order
+        description: "Date (UTC) of a customer's most recent order"
+
+      - name: number_of_orders
+        description: "Count of the number of orders a customer has placed"
+
+  - name: fact_orders
+    description: "This table has basic information about orders"
     columns:
-      - name: sales_id
+      - name: order_id
         description: "The primary key for this table"
         tests:
           - unique
           - not_null
+      
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - not_null
+
+      - name: order_date
+        description: "The date (UTC) that the order was placed"
+
+      - name: status
+        description: "{{ doc('order_status') }}"
+
+      - name: amount
+        description: "Total amount (USD) of the order"
+
+      - name: first_order
+        description: "First order"
+
+      - name: most_recent_order
+        description: "The most recent order storage"
+
+      - name: number_of_orders
+        description: "Number of orders storage"

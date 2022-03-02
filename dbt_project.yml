@@ -50,8 +50,12 @@ models:
       tags: analytics
 
 seeds:
-  supermarket_sales:
+  raw_customers:
     schema: raw
-  
+  raw_orders:
+    schema: raw
+  raw_payments:
+    schema: raw
+
 snapshots:
   transient: false
