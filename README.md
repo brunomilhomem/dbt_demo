@@ -1,6 +1,7 @@
-# DBT POC using Snowflake Trial Acccess!
+# DBT POC using Snowflake Trial Acccess
 
 - Short description about the poc
+
 ### Snowflake Setup
 
 |  |  |
@@ -11,7 +12,7 @@
 | database | dev |
 | warehouse | Transformer |
 
-**Applying Grants**
+### Applying Grants
 
 > Dropping user & role if they already exists.
 
@@ -67,7 +68,7 @@ grant select on future tables in schema "DEV"."RAW" to role transformer;
 
 ## DBT Installation
 
-Try running the following commands on your terminal:
+Sequence of commands:
 
 ```dbt
 pip install dbt
@@ -77,11 +78,13 @@ dbt --version
 dbt debug
 dbt init
 dbt deps
+dbt seed
+dbt run
 ```
 
 Profile template:
 
-```
+```text
 # For more information on how to configure this file, please see:
 # https://docs.getdbt.com/docs/profile
 dbt_demo:
