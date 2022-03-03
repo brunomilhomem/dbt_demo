@@ -1,7 +1,7 @@
 # DBT POC using Snowflake Trial Acccess
 
-- Short description about the poc
-
+- This repo tends to just show a simple demo using dbt with snowflake warehouse
+  
 ### Snowflake Setup
 
 |  |  |
