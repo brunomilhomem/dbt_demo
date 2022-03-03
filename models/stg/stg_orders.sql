@@ -1,8 +1,9 @@
 with orders as (
 
     select
-        {{ dbt_utils.surrogate_key(['id', 'order_date', 'status']) }} as order_id
-        ,customer_id
+        {{ dbt_utils.surrogate_key(['id']) }} as sk_order
+        ,id as order_id
+        ,user_id as customer_id
         ,order_date
         ,status
         ,min(order_date) as first_order

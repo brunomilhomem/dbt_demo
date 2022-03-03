@@ -35,6 +35,7 @@ create database DEV comment = 'Development database';
 
 ```sql
 create schema "DEV"."RAW" comment = 'Landing zone for raw data';
+create schema "DEV"."STG" comment = 'data layer for transforming';
 create schema "DEV"."ANALYTICS" comment = 'data layer for end user';
 ```
 
@@ -62,6 +63,7 @@ grant usage,operate on warehouse transforming to role transformer;
 grant usage,create schema on database DEV to role transformer;
 grant usage on schema "DEV"."RAW" to role transformer;
 grant all on schema "DEV"."ANALYTICS" to role transformer;
+grant all on schema "DEV"."STG" to role transformer;
 grant select on all tables in schema "DEV"."RAW" to role transformer;
 grant select on future tables in schema "DEV"."RAW" to role transformer;
 ```

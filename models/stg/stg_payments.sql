@@ -1,7 +1,9 @@
 with payments as (
 
     select
-        {{ dbt_utils.surrogate_key(['id', 'order_id', 'payment_method']) }} as payment_id
+        {{ dbt_utils.surrogate_key(['id']) }} as sk_payment
+        ,id as payment_id
+        ,orders.customer_id
         ,order_id
         ,payment_method
 
@@ -10,8 +12,9 @@ with payments as (
         ,sum(amount) as total_amount
 
     from {{ ref('payments')}} payments
+    left join {{ ref('stg_orders')}} orders using (order_id)
 
-    group by payment_id, order_id, payment_method
+    group by sk_payment, payment_id, customer_id, order_id, payment_method, amount
 
 )
 

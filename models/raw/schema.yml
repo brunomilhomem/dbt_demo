@@ -3,8 +3,9 @@ version: 2
 # Sources
 sources:
   - name: raw_data
-  - database: dev
-  - schema: raw
+    description: 'Database to storage the raw data'
+    database: DEV
+    schema: RAW
     tables:
       - name: customers
       - name: orders

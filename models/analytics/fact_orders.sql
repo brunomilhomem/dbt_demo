@@ -1,19 +1,28 @@
 with fact_orders as (
 
+    select * from {{ ref('stg_orders') }}
+
+),
+
+order_payments as (
+
+    select * from {{ ref('stg_payments') }}
+
+),
+
+final as (
+
     select
-        orders.order_id
-        ,orders.customer_id
-        ,orders.order_date
-        ,orders.status
-        --metrics
-        ,orders.first_order
-        ,orders.most_recent_order
-        ,orders.number_of_orders
-        ,order_payments.total_amount as amount
-        
-    from {{ ref('stg_orders')}} orders
-    left join {{ ref('stg_payments')}} payments using (order_id)
+        fact_orders.order_id,
+        fact_orders.customer_id,
+        fact_orders.order_date,
+        fact_orders.status,
+        order_payments.total_amount as amount
+
+    from fact_orders
+
+    left join order_payments using (order_id)
 
 )
 
-select * from fact_orders
+select * from final
