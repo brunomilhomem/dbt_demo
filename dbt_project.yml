@@ -49,13 +49,15 @@ models:
       transient: false
       tags: analytics
 
+# Configuring seeds
 seeds:
-  raw_customers:
-    schema: raw
-  raw_orders:
-    schema: raw
-  raw_payments:
-    schema: raw
+  dbt_demo:
+    raw_customers:
+    raw_orders:
+    raw_payments:
 
+# Configuring snapshots    
 snapshots:
-  transient: false
+  dbt_demo:
+    target_schema: analytics
+    transient: false

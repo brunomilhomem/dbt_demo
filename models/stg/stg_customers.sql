@@ -1,4 +1,4 @@
-{{ config(materialized='view') }}
+{{ config(schema: 'stg') }}
 
 with customer as (
 

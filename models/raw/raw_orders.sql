@@ -1,3 +1,5 @@
+{{ config(schema='raw') }}
+
 with raw_orders as (
 
     select * from {{ source('raw_data', 'orders')}}
