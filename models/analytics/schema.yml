@@ -47,16 +47,7 @@ models:
         description: "The date (UTC) that the order was placed"
 
       - name: status
-        description: "{{ doc('order_status') }}"
+        description: "The status of the order"
 
       - name: amount
-        description: "Total amount (USD) of the order"
-
-      - name: first_order
-        description: "First order"
-
-      - name: most_recent_order
-        description: "The most recent order storage"
-
-      - name: number_of_orders
-        description: "Number of orders storage"
+        description: "The amount of orders"
