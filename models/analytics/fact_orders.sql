@@ -19,7 +19,8 @@ final as (
         fact_orders.customer_id,
         fact_orders.order_date,
         fact_orders.status,
-        order_payments.total_amount as amount
+        order_payments.amount,
+        order_payments.total_amount
 
     from fact_orders
 
