@@ -1,4 +1,4 @@
-{{ config(schema: 'analytics') }}
+{{ config(schema= 'analytics') }}
 
 with customers as (
 

@@ -7,10 +7,10 @@
 |  |  |
 | ------ | ------ |
 | user | DBT_CLOUD |
-| role | Transformer |
+| role | transformer |
 | schema | analytics |
 | database | dev |
-| warehouse | Transformer |
+| warehouse | transformer |
 
 ### Applying Grants
 
@@ -35,8 +35,8 @@ create database DEV comment = 'Development database';
 
 ```sql
 create schema "DEV"."RAW" comment = 'Landing zone for raw data';
-create schema "DEV"."STG" comment = 'data layer for transforming';
-create schema "DEV"."ANALYTICS" comment = 'data layer for end user';
+create schema "DEV"."STG" comment = 'Data layer for transforming';
+create schema "DEV"."ANALYTICS" comment = 'Data layer for end user';
 ```
 
 > Create an access role.
@@ -62,8 +62,9 @@ create warehouse transforming with
 grant usage,operate on warehouse transforming to role transformer;
 grant usage,create schema on database DEV to role transformer;
 grant usage on schema "DEV"."RAW" to role transformer;
-grant all on schema "DEV"."ANALYTICS" to role transformer;
+grant all on schema "DEV"."RAW" to role transformer;
 grant all on schema "DEV"."STG" to role transformer;
+grant all on schema "DEV"."ANALYTICS" to role transformer;
 grant select on all tables in schema "DEV"."RAW" to role transformer;
 grant select on future tables in schema "DEV"."RAW" to role transformer;
 ```
@@ -83,9 +84,9 @@ dbt deps
 dbt seed
 dbt run
 ```
+
 - You can also install dbt using [these instructions](https://docs.getdbt.com/dbt-cli/install/overview)
   
-
 Profile template:
 
 ```yaml
