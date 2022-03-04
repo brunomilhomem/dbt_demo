@@ -1,4 +1,4 @@
-{{ config(schema='raw') }}
+{{ config(schema= 'raw') }}
 
 with raw_customers as (
 

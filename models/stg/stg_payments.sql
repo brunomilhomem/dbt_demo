@@ -1,4 +1,4 @@
-{{ config(schema: 'stg') }}
+{{ config(schema= 'stg') }}
 
 with payments as (
 

@@ -1,4 +1,4 @@
-{% begin snapshot_table %}
+{% begin snapshot_fact_orders %}
 {{
     config(
       unique_key='sales_id',
@@ -6,16 +6,15 @@
       strategy='check',
       check_cols=[
         'customer_standard_leadtime',
-        'global_order_promise_leadtime',
-        'actual_supply_leadtime',
-        'customer_standard_leadtime_unit',
-        'global_order_promise_leadtime_unit',
-        'actual_supply_leadtime_unit',
-        'atp_rule_name'
+        'order_id',
+        'customer_id',
+        'order_date',
+        'status',
+        'amount'
       ]
     )
 }}
 
-select * from {{ ref('stg_table') }}
+select * from {{ ref('fact_orders') }}
 
-{% end snapshot_table %}
+{% end snapshot_fact_orders %}
