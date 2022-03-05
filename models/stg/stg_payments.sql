@@ -13,7 +13,7 @@ with payments as (
         ,amount / 100 as amount
         ,sum(amount) as total_amount
 
-    from {{ ref('payments')}} payments
+    from {{ ref('raw_payments')}} payments
     left join {{ ref('stg_orders')}} orders using (order_id)
 
     group by sk_payment, payment_id, customer_id, order_id, payment_method, amount

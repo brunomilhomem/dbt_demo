@@ -9,7 +9,7 @@ select
     ,last_name
     ,email
 
-from {{ ref ('customers')}} customers
+from {{ ref ('raw_customers')}} customers
 
 )
 

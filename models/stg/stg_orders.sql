@@ -12,7 +12,7 @@ with orders as (
         ,max(order_date) as most_recent_order
         ,count(order_id) as number_of_orders
 
-    from {{ ref('orders')}} orders
+    from {{ ref('raw_orders')}} orders
 
     group by order_id, customer_id, order_date, status
 
