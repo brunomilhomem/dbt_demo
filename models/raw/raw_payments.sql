@@ -1,5 +1,3 @@
-{{ config(schema= 'raw') }}
-
 with raw_payments as (
 
     select * from {{ source('raw_data', 'payments')}}

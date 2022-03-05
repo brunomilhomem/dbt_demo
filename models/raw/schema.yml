@@ -4,8 +4,8 @@ version: 2
 sources:
   - name: raw_data
     description: 'Database to storage the raw data'
-    database: DEV
-    schema: RAW
+    database: dev
+    schema: analytics_raw
     tables:
       - name: customers
       - name: orders

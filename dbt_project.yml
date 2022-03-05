@@ -24,7 +24,6 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -44,7 +43,6 @@ models:
       materialized: view
       tags: stg
     analytics: # dimensions and facts tables
-      schema: analytics
       materialized: incremental
       transient: false
       tags: analytics
@@ -52,9 +50,9 @@ models:
 # Configuring seeds
 seeds:
   dbt_demo:
-    raw_customers:
-    raw_orders:
-    raw_payments:
+    +schema: raw
+  
+
 
 # Configuring snapshots    
 snapshots:

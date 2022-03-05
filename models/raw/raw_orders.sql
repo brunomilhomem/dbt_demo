@@ -1,4 +1,3 @@
-{{ config(schema= 'raw') }}
 with raw_orders as (
 
     select * from {{ source('raw_data', 'orders')}}
@@ -8,6 +7,7 @@ with raw_orders as (
 final as (
 
     select * from raw_orders
+
 )
 
 select * from final
