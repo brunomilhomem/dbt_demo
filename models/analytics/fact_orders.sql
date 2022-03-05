@@ -13,12 +13,11 @@ order_payments as (
 final as (
 
     select
-        fact_orders.order_id,
-        fact_orders.customer_id,
-        fact_orders.order_date,
-        fact_orders.status,
-        order_payments.amount,
-        order_payments.total_amount
+        fact_orders.order_id
+        ,fact_orders.customer_id
+        ,fact_orders.order_date
+        ,fact_orders.status
+        ,order_payments.amount
 
     from fact_orders
 
