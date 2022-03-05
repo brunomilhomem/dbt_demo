@@ -2,7 +2,7 @@
 {{
     config(
       unique_key='sales_id',
-      target_schema = 'analytics',
+      --target_schema = 'analytics',
       strategy='check',
       check_cols=[
         'customer_standard_leadtime',

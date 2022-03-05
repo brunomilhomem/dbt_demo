@@ -1,5 +1,3 @@
-{{ config(schema= 'analytics') }}
-
 with fact_orders as (
 
     select * from {{ ref('stg_orders') }}

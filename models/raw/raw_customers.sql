@@ -1,5 +1,3 @@
-{{ config(schema= 'raw') }}
-
 with raw_customers as (
 
     select * from {{ source('raw_data', 'customers')}}

@@ -1,5 +1,3 @@
-{{ config(schema= 'stg') }}
-
 with payments as (
 
     select
