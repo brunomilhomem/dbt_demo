@@ -1,5 +1,3 @@
-{{ config(schema= 'stg') }}
-
 with orders as (
 
     select

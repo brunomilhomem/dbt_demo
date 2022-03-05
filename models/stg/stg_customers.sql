@@ -1,5 +1,3 @@
-{{ config(schema= 'stg') }}
-
 with customer as (
 
 select
