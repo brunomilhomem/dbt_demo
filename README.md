@@ -1,7 +1,7 @@
 # DBT POC using Snowflake Trial Acccess
 
-- This repo tends to just show a simple demo using dbt with snowflake warehouse
-  
+- Simple demo using dbt with snowflake warehouse
+
 ### Snowflake Setup
 
 |  |  |
@@ -11,6 +11,8 @@
 | schema | analytics |
 | database | dev |
 | warehouse | transformer |
+
+***
 
 ### Applying Grants
 
@@ -69,6 +71,8 @@ grant select on all tables in schema "DEV"."RAW" to role transformer;
 grant select on future tables in schema "DEV"."RAW" to role transformer;
 ```
 
+***
+
 ## DBT Installation
 
 Sequence of commands:
@@ -83,6 +87,8 @@ dbt init
 dbt deps
 dbt seed
 dbt run
+dbt docs generate
+dbt docs serve --port 8001
 ```
 
 - You can also install dbt using [these instructions](https://docs.getdbt.com/dbt-cli/install/overview)
@@ -107,6 +113,19 @@ dbt_demo:
       threads: 4
       client_session_keep_alive: False
 ```
+
+### DAGs
+
+![](images/dbt_lineage_graph.png)
+
+***
+
+### DIM & FACT
+
+![](images/dim_customer.png)
+![](images/fact_orders.png)
+
+***
 
 ### Resources
 
