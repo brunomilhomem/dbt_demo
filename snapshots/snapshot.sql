@@ -5,7 +5,6 @@
       --target_schema = 'analytics',
       strategy='check',
       check_cols=[
-        'customer_standard_leadtime',
         'order_id',
         'customer_id',
         'order_date',
