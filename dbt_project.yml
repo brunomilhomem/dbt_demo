@@ -31,25 +31,37 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
+
   dbt_demo:
-      # Applies to all files under models/example/
+
+    # This configures models found in models/raw/
     raw: # tables with raw data
       schema: raw
       transient: false
       materialized: table
       tags: raw
+
+    # This configures models found in models/stg/  
     stg: # tables with data already prepared
       schema: stg
       materialized: view
       tags: stg
+
+    # This configures models found in models/edw/  
     edw: # dimensions and facts tables
       materialized: incremental
+      on_schema_change: append_new_columns
       transient: false
-      tags: analytics
-    views:
+      tags: edw
+
+    # This configures models found in models/views/
+    views: # views consuming from edw objects
       schema: edw
       materialized: view
-      tags: view
+      transient: false
+      tags: 
+        - edw
+        - view
 
 
 # Configuring seeds
