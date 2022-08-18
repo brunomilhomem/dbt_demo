@@ -1,8 +1,9 @@
 {% begin snapshot_fact_orders %}
+
 {{
     config(
       unique_key='sales_id',
-      --target_schema = 'analytics',
+      target_schema = 'stg',
       strategy='check',
       check_cols=[
         'order_id',

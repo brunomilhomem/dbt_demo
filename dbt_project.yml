@@ -42,10 +42,15 @@ models:
       schema: stg
       materialized: view
       tags: stg
-    analytics: # dimensions and facts tables
+    edw: # dimensions and facts tables
       materialized: incremental
       transient: false
       tags: analytics
+    views:
+      schema: edw
+      materialized: view
+      tags: view
+
 
 # Configuring seeds
 seeds:
@@ -53,9 +58,8 @@ seeds:
     +schema: raw
   
 
-
 # Configuring snapshots    
 snapshots:
   dbt_demo:
-    target_schema: analytics
+    target_schema: edw
     transient: false
