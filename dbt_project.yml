@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'dbt_demo'
+profile: 'default'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -45,10 +45,12 @@ models:
     stg: # tables with data already prepared
       schema: stg
       materialized: view
+      transient: false
       tags: stg
 
     # This configures models found in models/edw/  
     edw: # dimensions and facts tables
+      schema: edw
       materialized: incremental
       on_schema_change: append_new_columns
       transient: false
